@@ -1,98 +1,56 @@
-import type { JSX, ReactNode } from 'react';
+import type { StaticImageData } from 'next/image';
+import type { JSX } from 'react';
 
+import {
+  ARROW_RIGHT_ICON,
+  CHECK_ICON,
+  CHEVRON_DOWN_ICON,
+  CLOSE_ICON,
+  EDIT_ICON,
+  PLUS_ICON,
+  SEARCH_ICON,
+} from '../../../../shared/utils/imageURL';
 import type { IconProps, SharedIconName } from './Icon.types';
 import styles from './Icon.module.scss';
 
-const ICON_PATHS: Record<SharedIconName, (strokeWidth: number) => ReactNode> = {
-  check: (strokeWidth) => (
-    <path
-      d="M5 12.5l4.5 4.5L19 7"
-      stroke="currentColor"
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  ),
-  close: (strokeWidth) => (
-    <path
-      d="M6 6l12 12M18 6L6 18"
-      stroke="currentColor"
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-    />
-  ),
-  plus: (strokeWidth) => (
-    <path
-      d="M12 5v14M5 12h14"
-      stroke="currentColor"
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-    />
-  ),
-  edit: (strokeWidth) => (
-    <path
-      d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5Z"
-      stroke="currentColor"
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  ),
-  'arrow-right': (strokeWidth) => (
-    <path
-      d="M5 12h14M12 5l7 7-7 7"
-      stroke="currentColor"
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  ),
-  search: (strokeWidth) => (
-    <>
-      <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth={strokeWidth} />
-      <path d="M20 20l-4-4" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" />
-    </>
-  ),
-  'chevron-down': (strokeWidth) => (
-    <path
-      d="M6 9l6 6 6-6"
-      stroke="currentColor"
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  ),
+const ICON_ASSETS: Record<SharedIconName, StaticImageData> = {
+  check: CHECK_ICON,
+  close: CLOSE_ICON,
+  plus: PLUS_ICON,
+  edit: EDIT_ICON,
+  'arrow-right': ARROW_RIGHT_ICON,
+  search: SEARCH_ICON,
+  'chevron-down': CHEVRON_DOWN_ICON,
 };
 
 /**
- * Renders a shared SVG vector icon aligned with the ICICI Pru Design System.
+ * Renders a shared SVG icon sourced from `packages/shared/assets/icons` via `packages/shared/utils/imageURL`.
  * Decorative by default (`aria-hidden="true"`); supply `label` for semantic icons.
  * @param props Icon name, sizing, and optional accessibility label.
- * @returns Inline SVG element.
+ * @returns Masked icon element inheriting `currentColor`.
  */
 export function Icon({
   name,
   size = 18,
-  strokeWidth = 2.2,
   label,
   className,
 }: IconProps): JSX.Element {
   const safeLabel = label?.trim();
   const classNames = [styles.icon, 'shared-icon', className ?? ''].filter(Boolean).join(' ');
+  const iconMask = `url("${ICON_ASSETS[name].src}")`;
 
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
+    <span
       className={classNames}
+      style={{
+        width: size,
+        height: size,
+        WebkitMaskImage: iconMask,
+        maskImage: iconMask,
+      }}
       role={safeLabel ? 'img' : undefined}
       aria-label={safeLabel || undefined}
       aria-hidden={safeLabel ? undefined : true}
-      focusable="false"
-    >
-      {ICON_PATHS[name](strokeWidth)}
-    </svg>
+    />
   );
 }

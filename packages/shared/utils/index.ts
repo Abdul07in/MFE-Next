@@ -1,3 +1,5 @@
+export * from './imageURL';
+
 export function formatCurrencyInr(value: number): string {
   return new Intl.NumberFormat('en-IN', {
     style: 'currency',

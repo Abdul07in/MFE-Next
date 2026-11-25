@@ -2,7 +2,7 @@
 
 ## Usage
 
-Renders vector SVG icons shared across investor and distributor flows. Mirrors raw SVG sources in `packages/shared/icons`.
+Renders vector SVG icons stored in `packages/shared/assets/icons` and exported through `packages/shared/utils/imageURL.tsx`.
 
 ## Required props
 
@@ -11,7 +11,7 @@ Renders vector SVG icons shared across investor and distributor flows. Mirrors r
 ## Accessibility notes
 
 - Decorative icons omit `label` and automatically set `aria-hidden="true"`.
-- Standalone semantic icons must pass a descriptive `label`.
+- Standalone semantic icons must pass a descriptive `label` (`role="img"` + `aria-label`).
 
 ## Example
 

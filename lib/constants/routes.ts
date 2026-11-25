@@ -8,5 +8,6 @@ export const ROUTES = {
     home: '/',
     login: '/login',
     leads: '/leads',
+    discover: '/discover',
   },
 } as const;
