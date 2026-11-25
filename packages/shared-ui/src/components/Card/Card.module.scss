@@ -1,0 +1,55 @@
+.sharedCard {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.sharedCardDefault {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.sharedCardSelected {
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-primary);
+}
+
+.sharedCardInfo {
+  background: var(--color-surface-info);
+  border: 1px solid var(--color-border);
+}
+
+.sharedCardHoverable:hover {
+  border-color: var(--color-text-muted);
+  box-shadow: var(--shadow-md);
+}
+
+.sharedCardPadNone {
+  padding: 0;
+}
+
+.sharedCardPadSm {
+  padding: var(--space-4);
+}
+
+.sharedCardPadMd {
+  padding: var(--space-5);
+
+  @media (min-width: 40.0625rem) {
+    padding: var(--space-6);
+  }
+}
+
+.sharedCardPadLg {
+  padding: var(--space-5);
+
+  @media (min-width: 40.0625rem) {
+    padding: 1.75rem;
+  }
+}

@@ -1,0 +1,16 @@
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  background: var(--color-surface);
+}
+
+.name {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.meta {
+  margin: 0.5rem 0 0;
+  color: #55627a;
+}

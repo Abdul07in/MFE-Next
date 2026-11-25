@@ -1,0 +1,1 @@
+export { distributorTheme } from './theme';

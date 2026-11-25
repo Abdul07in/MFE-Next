@@ -1,0 +1,69 @@
+.sharedIconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-height-btn);
+  height: var(--control-height-btn);
+  padding: 0;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px var(--color-primary-ring-strong);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+.sharedIconButtonPrimary {
+  background: var(--color-primary);
+  color: var(--color-surface);
+
+  &:hover:not(:disabled) {
+    background: var(--color-primary-hover);
+  }
+}
+
+.sharedIconButtonSecondary {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+
+  &:hover:not(:disabled) {
+    background: var(--color-primary-light);
+  }
+}
+
+.sharedIconButtonGhost {
+  background: transparent;
+  color: var(--color-primary);
+
+  &:hover:not(:disabled) {
+    background: var(--color-primary-light);
+  }
+}
+
+.sharedIconButtonSm {
+  width: var(--control-height-sm);
+  height: var(--control-height-sm);
+}
+
+.sharedIconButtonRound {
+  border-radius: var(--radius-full);
+}
+
+.sharedIconButtonCtaShadow {
+  box-shadow: var(--shadow-cta);
+}

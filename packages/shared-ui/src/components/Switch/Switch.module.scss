@@ -1,0 +1,55 @@
+.sharedSwitchField {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.sharedSwitchLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.sharedSwitchTrack {
+  position: relative;
+  width: 2.75rem;
+  height: 1.625rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-text-20);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}
+
+.sharedSwitchTrackChecked {
+  background: var(--color-primary);
+}
+
+.sharedSwitchThumb {
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease;
+}
+
+.sharedSwitchThumbChecked {
+  transform: translateX(1.125rem);
+}

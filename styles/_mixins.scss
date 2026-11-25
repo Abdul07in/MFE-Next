@@ -1,0 +1,25 @@
+@mixin focus-ring {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@mixin field-focus-ring {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus-orange);
+  background: var(--color-bg);
+}
+
+@mixin container-grid {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin-inline: auto;
+  padding-inline: var(--layout-margin-mobile);
+
+  @media (min-width: 40.0625rem) {
+    padding-inline: var(--layout-margin-tablet);
+  }
+
+  @media (min-width: 64.0625rem) {
+    padding-inline: var(--layout-margin-desktop);
+  }
+}

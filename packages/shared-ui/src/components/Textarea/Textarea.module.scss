@@ -1,0 +1,82 @@
+.sharedTextareaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sharedTextareaFullWidth {
+  width: 100%;
+}
+
+.sharedTextareaLabel {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.01em;
+}
+
+.sharedTextareaElement {
+  width: 100%;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-surface);
+  resize: vertical;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+
+  &::placeholder {
+    font-weight: 500;
+    color: var(--color-text-placeholder);
+    opacity: 1;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-text-muted);
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-focus-orange);
+    background: var(--color-bg);
+  }
+
+  &:disabled {
+    background: var(--color-surface-subtle);
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+  }
+}
+
+.sharedTextareaSuccess {
+  border-color: var(--color-success);
+  box-shadow: var(--shadow-focus-success);
+}
+
+.sharedTextareaError {
+  border-color: var(--color-error);
+  box-shadow: var(--shadow-focus-error);
+}
+
+.sharedTextareaHelper {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-60);
+}
+
+.sharedTextareaErrorMessage {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-error);
+}

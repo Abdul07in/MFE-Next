@@ -1,0 +1,1 @@
+export { investorTheme } from './theme';

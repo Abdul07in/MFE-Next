@@ -1,0 +1,63 @@
+.sharedTabs {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 0 var(--space-4);
+
+  @media (min-width: 40.0625rem) {
+    padding: 0 var(--space-6);
+  }
+}
+
+.sharedTabsList {
+  display: flex;
+  gap: var(--space-6);
+  border-bottom: 1px solid var(--color-border-light);
+  overflow-x: auto;
+
+  @media (min-width: 40.0625rem) {
+    gap: var(--space-8);
+  }
+}
+
+.sharedTabsButton {
+  position: relative;
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  padding: var(--space-3) 0.125rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-60);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+
+  &:hover:not(:disabled) {
+    color: var(--color-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.sharedTabsButtonActive {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  font-weight: 800;
+}
+
+.sharedTabsPanel {
+  padding: var(--space-5) 0;
+}

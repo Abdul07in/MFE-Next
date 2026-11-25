@@ -1,0 +1,25 @@
+{
+  "name": "mfe-next-platform",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:investor": "npm run dev -w @mfe/investor",
+    "dev:distributor": "npm run dev -w @mfe/distributor",
+    "build": "npm run build:investor && npm run build:distributor",
+    "build:investor": "npm run build -w @mfe/investor",
+    "build:distributor": "npm run build -w @mfe/distributor",
+    "start:investor": "npm run start -w @mfe/investor",
+    "start:distributor": "npm run start -w @mfe/distributor",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck:investor": "npm run typecheck -w @mfe/investor",
+    "typecheck:distributor": "npm run typecheck -w @mfe/distributor",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

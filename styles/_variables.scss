@@ -1,0 +1,100 @@
+:root {
+  /* Typography */
+  --font-sans: var(--font-mulish), 'Mulish', sans-serif;
+
+  /* Brand & Primary */
+  --color-primary: #dc6009;
+  --color-primary-hover: #d45008;
+  --color-primary-strong: #d45008;
+  --color-primary-light: #fff0e5;
+  --color-primary-ring: rgba(220, 96, 9, 0.12);
+  --color-primary-ring-strong: rgba(220, 96, 9, 0.25);
+  --color-navy: #133359;
+  --color-secondary-blue: #5a728b;
+  --color-blue-60: #677e98;
+  --color-blue-tint: #e7f1fd;
+
+  /* Text */
+  --color-text: #133359;
+  --color-text-secondary: #435160;
+  --color-text-70: #5a728b;
+  --color-text-60: #677e98;
+  --color-text-muted: #a1adbd;
+  --color-text-placeholder: #8999ac;
+  --color-text-30: #b9c2ce;
+  --color-text-20: #d0d6de;
+  --color-text-10: #e8ebef;
+  --color-text-skip: #89919f;
+
+  /* Surfaces */
+  --color-bg: #fffaf6;
+  --color-surface: #ffffff;
+  --color-surface-subtle: #f6f7f8;
+  --color-surface-muted: #f1f3f5;
+  --color-surface-tint-warm: #fff0e5;
+  --color-surface-warm: #ffe1c2;
+  --color-surface-info: #eff6ff;
+  --color-surface-scrim: rgba(10, 20, 15, 0.55);
+
+  /* Borders */
+  --color-border: #d9dee4;
+  --color-border-light: #eaedf0;
+  --color-border-strong: #cbd2db;
+  --color-border-dropdown: #a1adbd;
+
+  /* Semantic & Status Chip Tokens */
+  --color-success: #009966;
+  --color-success-bg: #ecfdf5;
+  --color-success-border: #d0fae5;
+  --color-error: #e24a3d;
+  --color-error-bg: #fdf2f1;
+  --color-error-border: #fad5d1;
+  --color-warning: #b08612;
+  --color-warning-bg: #fdf8ec;
+  --color-warning-border: #f7e6b5;
+  --color-info: #035fd0;
+  --color-info-bg: #e7f1fd;
+  --color-info-border: #bfdbfe;
+  --color-in-progress: #ffb466;
+  --color-orange-tag-border: #ffd9b8;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(19, 51, 89, 0.04);
+  --shadow-md: 0 1px 4px rgba(19, 51, 89, 0.04), 0 6px 20px rgba(19, 51, 89, 0.05);
+  --shadow-lg: 0 8px 32px rgba(19, 51, 89, 0.12);
+  --shadow-modal: 0 20px 60px rgba(10, 20, 15, 0.18);
+  --shadow-cta: 0 4px 14px rgba(220, 96, 9, 0.32);
+  --shadow-focus-orange: 0 0 0 3px rgba(220, 96, 9, 0.12);
+  --shadow-focus-error: 0 0 0 3px rgba(226, 74, 61, 0.1);
+  --shadow-focus-success: 0 0 0 3px rgba(0, 153, 102, 0.1);
+
+  /* Spacing (4px base unit) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+
+  /* Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-full: 999px;
+
+  /* Control Dimensions */
+  --control-height-sm: 2.125rem;
+  --control-height-btn: 2.75rem;
+  --control-height-input: 3rem;
+  --control-height-lg: 3.25rem;
+
+  /* Layout Grid */
+  --layout-max-width: 90rem;
+  --layout-gutter: 1.5rem;
+  --layout-margin-mobile: 1rem;
+  --layout-margin-tablet: 1.25rem;
+  --layout-margin-desktop: 2rem;
+}
