@@ -2,26 +2,33 @@
 
 ## Usage
 
-Shared `48px` dropdown control matching `Input` dimensions, border radius, and validation states.
+Standardized Material UI (`@mui/material/Select`) dropdown aligned with the ICICI Pru Design System (`48px` height, `12px` radius, `1.5px` border, custom orange focus and menu states).
 
 ## Required props
 
 - `options`
 
+## Optional props
+
+- `size`: `'md' | 'sm'` (`'md'` standard `48px` input, `'sm'` compact `34px` embedded selector)
+- `onValueChange`: convenience callback receiving the selected `string` value
+- `onChange`: standard MUI `SelectChangeEvent<string>` callback
+
 ## Accessibility notes
 
-- Associates `<label>` via `htmlFor` and sets `aria-invalid` / `aria-describedby` on error.
+- Associates `<label>` via `aria-labelledby`, wires `aria-invalid` and `aria-describedby` for errors/helpers, and provides full keyboard menu navigation via MUI Select.
 
 ## Example
 
 ```tsx
 <Select
-  label="Occupation"
-  placeholder="Select option"
-  defaultValue=""
+  label="Account Type"
+  placeholder="Select type"
+  value={accountType}
+  onValueChange={setAccountType}
   options={[
-    { value: 'salaried', label: 'Salaried' },
-    { value: 'self-employed', label: 'Self employed' },
+    { value: 'individual', label: 'Individual' },
+    { value: 'minor', label: 'Minor' },
   ]}
 />
 ```

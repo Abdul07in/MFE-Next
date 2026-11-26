@@ -9,5 +9,6 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   errorText?: string;
   startAdornment?: ReactNode;
   endAdornment?: ReactNode;
+  attachedFooter?: ReactNode;
   fullWidth?: boolean;
 }

@@ -14,5 +14,7 @@ export const ENDPOINTS = {
   distributor: {
     leads: '/v1/distributor/leads',
     reports: '/v1/distributor/reports',
+    verifyPan: '/api/v1/distributor/pan-verify',
+    fatca: '/api/v1/distributor/fatca',
   },
 } as const;

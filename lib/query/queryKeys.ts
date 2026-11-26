@@ -8,5 +8,7 @@ export const queryKeys = {
   },
   distributor: {
     leads: ['distributor', 'leads'] as const,
+    panVerify: (pan: string) => ['distributor', 'pan-verify', pan] as const,
+    fatca: (pan: string) => ['distributor', 'fatca', pan] as const,
   },
 } as const;

@@ -9,5 +9,6 @@ export const ROUTES = {
     login: '/login',
     leads: '/leads',
     discover: '/discover',
+    createFolio: '/folio/create-folio',
   },
 } as const;

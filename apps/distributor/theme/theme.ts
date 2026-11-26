@@ -48,7 +48,7 @@ export const distributorTheme = createTheme({
     borderRadius: 12,
   },
   typography: {
-    fontFamily: "var(--font-mulish), 'Mulish', sans-serif",
+    fontFamily: "'Mulish', sans-serif",
     h1: { fontSize: '2.25rem', lineHeight: 1.22, fontWeight: 900, letterSpacing: '-0.02em' },
     h2: { fontSize: '1.625rem', lineHeight: 1.31, fontWeight: 900, letterSpacing: '-0.01em' },
     h3: { fontSize: '1.25rem', lineHeight: 1.4, fontWeight: 800 },

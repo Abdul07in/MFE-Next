@@ -5,8 +5,8 @@ import styles from './Input.module.scss';
 
 /**
  * Standard text field aligned with the Design System (`48px` height, `12px` radius, `1.5px` border).
- * Automatically associates label, helper text, and error messaging for WCAG 2.2 AA compliance.
- * @param props Input label, validation state, adornments, and native input attributes.
+ * Automatically associates label, optional attached footer bar, helper text, and error messaging.
+ * @param props Input label, validation state, adornments, attached footer, and native input attributes.
  * @returns Accessible labeled text input block.
  */
 export function Input({
@@ -17,6 +17,7 @@ export function Input({
   errorText,
   startAdornment,
   endAdornment,
+  attachedFooter,
   fullWidth = true,
   disabled,
   className,
@@ -32,6 +33,7 @@ export function Input({
     styles.sharedInputControl,
     resolvedState === 'success' ? styles.sharedInputSuccess : '',
     resolvedState === 'error' ? styles.sharedInputError : '',
+    attachedFooter ? styles.sharedInputWithFooter : '',
     disabled ? styles.sharedInputDisabled : '',
   ]
     .filter(Boolean)
@@ -53,17 +55,20 @@ export function Input({
           {label}
         </label>
       ) : null}
-      <div className={controlClasses}>
-        {startAdornment ? <span className={styles.sharedInputAdornmentStart}>{startAdornment}</span> : null}
-        <input
-          id={inputId}
-          className={inputClasses}
-          disabled={disabled}
-          aria-invalid={resolvedState === 'error' || undefined}
-          aria-describedby={messageId}
-          {...rest}
-        />
-        {endAdornment ? <span className={styles.sharedInputAdornmentEnd}>{endAdornment}</span> : null}
+      <div className={styles.sharedInputFieldWrapper}>
+        <div className={controlClasses}>
+          {startAdornment ? <span className={styles.sharedInputAdornmentStart}>{startAdornment}</span> : null}
+          <input
+            id={inputId}
+            className={inputClasses}
+            disabled={disabled}
+            aria-invalid={resolvedState === 'error' || undefined}
+            aria-describedby={messageId}
+            {...rest}
+          />
+          {endAdornment ? <span className={styles.sharedInputAdornmentEnd}>{endAdornment}</span> : null}
+        </div>
+        {attachedFooter ? <div className={styles.sharedInputAttachedFooter}>{attachedFooter}</div> : null}
       </div>
       {message ? (
         <p

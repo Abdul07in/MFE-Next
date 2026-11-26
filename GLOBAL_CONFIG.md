@@ -20,7 +20,7 @@ Scope: Monorepo root configuration for investor and distributor apps
 - Defaults:
   - `reactStrictMode: true`
   - `poweredByHeader: false`
-  - Security headers applied on all routes
+  - Security headers applied on all routes (`script-src 'self'` in production; `'unsafe-eval' 'unsafe-inline'` enabled only when `NODE_ENV === 'development'` for Next.js dev hydration; `style-src` allows `https://fonts.googleapis.com` and `font-src` allows `https://fonts.gstatic.com` for Google Fonts CDN)
 - Environments: dev, test, staging, production
 
 ## 2) Environment variable policy
@@ -79,7 +79,7 @@ Scope: Monorepo root configuration for investor and distributor apps
   2. `styles/_variables.scss` (ICICI Pru Design System color, spacing, radius, shadow, and layout tokens)
   3. `styles/_mixins.scss`
   4. base declarations in `styles/globals.scss`
-- Primary typeface: `Mulish` (weights 300–900) loaded via `next/font/google` in `apps/investor/app/layout.tsx` and `apps/distributor/app/layout.tsx` and bound to `--font-mulish` / `--font-sans`.
+- Primary typeface: `Mulish` (weights 300–900) loaded via Google Fonts CDN (`MULISH_GOOGLE_FONTS_URL` in `lib/constants/app.ts`) from `<head>` in `apps/investor/app/layout.tsx` and `apps/distributor/app/layout.tsx` and referenced via `--font-sans: 'Mulish', sans-serif`.
 - App MUI theme: `apps/investor/theme/theme.ts` and `apps/distributor/theme/theme.ts` consume the same design system palette and Mulish typography scale.
 
 ## 8) Error boundary baseline

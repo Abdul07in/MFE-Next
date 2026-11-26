@@ -2,7 +2,7 @@
 
 ## Usage
 
-Shared `48px` text input with `12px` radius, `1.5px` border, and `default` / `success` / `error` / `disabled` states.
+Shared `48px` text input with `12px` radius, `1.5px` border, optional `startAdornment` / `endAdornment` / `attachedFooter`, and `default` / `success` / `error` / `disabled` states.
 
 ## Accessibility notes
 

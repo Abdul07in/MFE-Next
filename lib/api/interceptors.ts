@@ -1,4 +1,9 @@
-import type { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from 'axios';
+import {
+  AxiosHeaders,
+  type AxiosError,
+  type AxiosInstance,
+  type InternalAxiosRequestConfig,
+} from 'axios';
 
 import { AppError } from './errors';
 
@@ -13,10 +18,8 @@ async function refreshSessionToken(): Promise<boolean> {
 }
 
 function sanitizeRequestConfig(config: InternalAxiosRequestConfig): InternalAxiosRequestConfig {
-  const nextHeaders = {
-    ...config.headers,
-    'x-correlation-id': createCorrelationId(),
-  };
+  const nextHeaders = AxiosHeaders.from(config.headers);
+  nextHeaders.set('x-correlation-id', createCorrelationId());
 
   return {
     ...config,
@@ -37,14 +40,13 @@ export function applyInterceptors(client: AxiosInstance): void {
       const status = error.response?.status;
       const requestConfig = error.config;
 
-      if (status === 401 && requestConfig && !requestConfig.headers?.[RETRY_HEADER]) {
+      if (status === 401 && requestConfig && !requestConfig.headers?.get?.(RETRY_HEADER)) {
         const refreshed = await refreshSessionToken();
 
         if (refreshed) {
-          requestConfig.headers = {
-            ...requestConfig.headers,
-            [RETRY_HEADER]: '1',
-          };
+          const retryHeaders = AxiosHeaders.from(requestConfig.headers);
+          retryHeaders.set(RETRY_HEADER, '1');
+          requestConfig.headers = retryHeaders;
           return client(requestConfig);
         }
       }

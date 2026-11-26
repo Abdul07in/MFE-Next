@@ -1,6 +1,6 @@
 import { queryOptions } from '@tanstack/react-query';
 
-import { getFunds, getPlatformPing } from '../api/services';
+import { getClientFatcaDetails, getFunds, getPlatformPing } from '../api/services';
 import { queryKeys } from './queryKeys';
 
 export const platformQueryOptions = {
@@ -17,5 +17,15 @@ export const fundsQueryOptions = {
     queryOptions({
       queryKey: queryKeys.funds.all,
       queryFn: getFunds,
+    }),
+};
+
+export const distributorQueryOptions = {
+  fatca: (pan: string) =>
+    queryOptions({
+      queryKey: queryKeys.distributor.fatca(pan),
+      queryFn: () => getClientFatcaDetails(pan),
+      enabled: pan.length === 10,
+      staleTime: 60_000,
     }),
 };

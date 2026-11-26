@@ -1,0 +1,31 @@
+.sharedDatePickerGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sharedDatePickerFullWidth {
+  width: 100%;
+}
+
+.sharedDatePickerLabel {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.01em;
+}
+
+.sharedDatePickerHelper {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-60);
+}
+
+.sharedDatePickerErrorMessage {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-error);
+}

@@ -3,6 +3,7 @@ export * from './components/Button';
 export * from './components/Card';
 export * from './components/Checkbox';
 export * from './components/Chip';
+export * from './components/DatePicker';
 export * from './components/EmptyState';
 export * from './components/Icon';
 export * from './components/IconButton';

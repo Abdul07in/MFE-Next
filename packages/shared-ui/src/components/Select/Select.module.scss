@@ -16,58 +16,6 @@
   letter-spacing: 0.01em;
 }
 
-.sharedSelectControl {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.sharedSelectElement {
-  width: 100%;
-  height: var(--control-height-input);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 0 2.5rem 0 0.875rem;
-  font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--color-text);
-  background: var(--color-surface);
-  appearance: none;
-  cursor: pointer;
-  outline: none;
-  transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease,
-    background-color 0.15s ease;
-
-  &:hover:not(:disabled) {
-    border-color: var(--color-text-muted);
-  }
-
-  &:focus {
-    border-color: var(--color-primary);
-    box-shadow: var(--shadow-focus-orange);
-    background: var(--color-bg);
-  }
-
-  &:disabled {
-    background: var(--color-surface-subtle);
-    color: var(--color-text-muted);
-    cursor: not-allowed;
-  }
-}
-
-.sharedSelectSuccess {
-  border-color: var(--color-success);
-  box-shadow: var(--shadow-focus-success);
-}
-
-.sharedSelectError {
-  border-color: var(--color-error);
-  box-shadow: var(--shadow-focus-error);
-}
-
 .sharedSelectChevron {
   position: absolute;
   right: 0.875rem;
@@ -75,6 +23,16 @@
   align-items: center;
   color: var(--color-text-60);
   pointer-events: none;
+}
+
+.sharedSelectChevronSm {
+  right: 0.625rem;
+  color: var(--color-text-muted);
+}
+
+.sharedSelectPlaceholder {
+  font-weight: 500;
+  color: var(--color-text-placeholder);
 }
 
 .sharedSelectHelper {

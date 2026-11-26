@@ -1,0 +1,240 @@
+.fatcaCard {
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.fatcaCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-surface-muted);
+}
+
+.fatcaCardTitleWrap {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.fatcaCardShieldBadge {
+  padding: 0.5625rem;
+  border-radius: 0.625rem;
+  background: var(--color-surface-info);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fatcaCardTitle {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+.fatcaCardSubtitle {
+  margin: 0.125rem 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--color-text-60);
+}
+
+.fatcaSummaryBody {
+  padding: 0 var(--space-4) var(--space-4);
+}
+
+.fatcaSummaryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--space-3);
+}
+
+.fatcaSummaryItem {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-surface-muted);
+  min-width: 0;
+}
+
+.fatcaSummaryItemLabel {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.fatcaSummaryItemValue {
+  padding-top: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+
+.fatcaEditBody {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.fatcaEditGridTwo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+.fatcaEditGridThree {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+.fatcaFieldHint {
+  margin: var(--space-1) 0 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-60);
+}
+
+.fatcaTaxPanel {
+  background: var(--color-surface-subtle);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.fatcaTaxPanelHeading {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.fatcaConsentBox {
+  background: var(--color-warning-bg);
+  border: 1.5px solid var(--color-warning-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.fatcaConsentHeading {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-warning);
+}
+
+.fatcaDivider {
+  height: 1px;
+  background: var(--color-surface-muted);
+}
+
+.fatcaPersonalToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+}
+
+.fatcaPersonalLabel {
+  font-size: 0.6875rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.fatcaPersonalAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.fatcaPersonalChevronOpen {
+  transform: rotate(180deg);
+}
+
+.fatcaLoadingState {
+  padding: var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.fatcaErrorText {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-error);
+}
+
+@media (min-width: 40.0625rem) {
+  .fatcaCardHeader {
+    padding: var(--space-4) 1.375rem;
+  }
+
+  .fatcaSummaryBody {
+    padding: 0 1.375rem 1.25rem;
+  }
+
+  .fatcaSummaryGrid {
+    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+    column-gap: var(--space-4);
+  }
+
+  .fatcaSummaryItem {
+    padding: 0.875rem 1.25rem 0.875rem 0;
+  }
+
+  .fatcaSummaryItemValue {
+    padding-top: 0.3125rem;
+    font-size: 0.875rem;
+  }
+
+  .fatcaEditBody {
+    padding: 1.5rem 1.75rem;
+    gap: var(--space-5);
+  }
+
+  .fatcaEditGridTwo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fatcaEditGridThree {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
