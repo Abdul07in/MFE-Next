@@ -1,7 +1,11 @@
 import type { RadioOption } from '@shared-ui/components/RadioGroup';
 import type { SelectOption } from '@shared-ui/components/Select';
 
-import type { ClientLookupChoiceOption, FolioStepDefinition } from './types';
+import type {
+  ClientLookupChoiceOption,
+  FolioStepDefinition,
+  ResidenceOtherOptionCard,
+} from './types';
 
 export const FOLIO_WIZARD_STEPS: readonly FolioStepDefinition[] = [
   { stepNumber: 1, label: 'Client Details' },
@@ -150,3 +154,66 @@ export const TAGGED_EMAIL_ADDRESSES: readonly string[] = [
 ];
 
 export const DEFAULT_VERIFIED_PAN_HOLDER_NAME = 'RAHUL SHARMA';
+
+export const RESIDENCE_OTHER_CARDS: readonly ResidenceOtherOptionCard[] = [
+  {
+    value: 'nri',
+    title: 'Non Resident Indian',
+    description: 'NRIs are Indian Citizens who are currently living abroad',
+  },
+  {
+    value: 'foreign',
+    title: 'Foreign National',
+    description: 'Foreign Nationals are Citizens of countries other than India',
+  },
+  {
+    value: 'pio',
+    title: 'Person Of Indian Origin',
+    description:
+      'PIOs are Foreign Nationals who had earlier held an Indian passport or whose ancestors were Indian Nationals',
+  },
+];
+
+export const OVERSEAS_COUNTRY_OPTIONS: readonly SelectOption[] = [
+  'United States',
+  'Canada',
+  'United Kingdom',
+  'United Arab Emirates',
+  'Singapore',
+  'Australia',
+  'Saudi Arabia',
+  'Qatar',
+  'Germany',
+  'Other',
+].map((country) => ({ value: country, label: country }));
+
+export const MINOR_RELATION_OPTIONS: readonly SelectOption[] = [
+  'Father',
+  'Mother',
+  'Court Appointed Guardian',
+].map((relation) => ({ value: relation, label: relation }));
+
+export const MINOR_DOB_PROOF_OPTIONS: readonly SelectOption[] = [
+  'Birth Certificate',
+  'School Leaving Certificate',
+  'Marks sheet issued by higher secondary board',
+  'Passport of minor',
+  'Others',
+].map((proof) => ({ value: proof, label: proof }));
+
+export const MINOR_REL_PROOF_OPTIONS: readonly SelectOption[] = [
+  'Birth Certificate',
+  'Court Order / Guardianship Certificate',
+  'Aadhaar of minor',
+  'School Leaving Certificate',
+  'Others',
+].map((proof) => ({ value: proof, label: proof }));
+
+export const OFFLINE_KYC_OVD_DOCUMENTS: readonly string[] = [
+  'Copy of PAN',
+  'Copy of passport / Persons of Indian Origin (PIO) Card / Overseas Citizenship of India (OCI) Card',
+  'Overseas address proof',
+];
+
+export const MINOR_PROOF_ALLOWED_EXTENSIONS = /\.(pdf|docx?|jpe?g|png)$/i;
+export const MINOR_PROOF_MAX_BYTES = 5 * 1024 * 1024;

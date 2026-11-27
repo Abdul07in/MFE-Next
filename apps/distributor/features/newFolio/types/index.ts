@@ -17,6 +17,8 @@ export type AccountTypeOption =
 
 export type ResidentialStatusOption = 'india' | 'usa' | 'other' | '';
 
+export type ResidenceOtherOption = 'nri' | 'foreign' | 'pio' | '';
+
 export interface FolioStepDefinition {
   stepNumber: FolioWizardStep;
   label: string;
@@ -27,6 +29,38 @@ export interface ClientLookupChoiceOption {
   title: string;
   description: string;
   recommended?: boolean;
+}
+
+export interface JointHolderDetails {
+  pan: string;
+  dob: string;
+  mobile: string;
+  mobileBelongsTo: string;
+  email: string;
+  emailBelongsTo: string;
+}
+
+export interface OverseasAddressDetails {
+  address: string;
+  country: string;
+  city: string;
+  state: string;
+  pinCode: string;
+}
+
+export interface MinorDetailsState {
+  minorName: string;
+  relation: string;
+  dobProofType: string;
+  dobProofFileName: string;
+  relProofType: string;
+  relProofFileName: string;
+}
+
+export interface ResidenceOtherOptionCard {
+  value: Exclude<ResidenceOtherOption, ''>;
+  title: string;
+  description: string;
 }
 
 export interface ClientDetailsFormState {
@@ -40,6 +74,13 @@ export interface ClientDetailsFormState {
   dob: string;
   accountType: AccountTypeOption;
   residentialStatus: ResidentialStatusOption;
+  residenceOther: ResidenceOtherOption;
+  overseasAddress: OverseasAddressDetails;
+  minorDetails: MinorDetailsState;
+  hasSecondary: boolean;
+  secondaryHolder: JointHolderDetails;
+  hasTertiary: boolean;
+  tertiaryHolder: JointHolderDetails;
 }
 
 export type FatcaFormState = FatcaDetailsResponse;

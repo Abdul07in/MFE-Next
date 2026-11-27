@@ -1,0 +1,166 @@
+.minorModalDialog {
+  max-width: 40rem;
+  max-height: 92vh;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.minorModalGridThree {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.minorModalGridTwo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.minorProofHint {
+  margin: var(--space-1) 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-60);
+}
+
+.minorUploadedFile {
+  margin-top: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.375rem 0.625rem;
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  min-width: 0;
+}
+
+.minorUploadedBadge {
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  background: var(--color-success);
+  color: var(--color-surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.minorUploadedName {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.minorRemoveFileBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-error);
+  cursor: pointer;
+  flex-shrink: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.minorDropzone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-4);
+  border: 1.5px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-tint);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+
+  &:hover:not(.minorDropzoneDisabled) {
+    background: var(--color-primary-light);
+  }
+}
+
+.minorDropzoneDragging {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary-hover);
+}
+
+.minorDropzoneDisabled {
+  border-color: var(--color-border);
+  background: var(--color-surface-subtle);
+  cursor: not-allowed;
+  opacity: 0.78;
+}
+
+.minorDropzoneInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.minorDropzoneTitle {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.minorDropzoneSubtitle {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-60);
+}
+
+.minorUploadError {
+  margin: var(--space-2) 0 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-error);
+}
+
+.minorModalSkipBtn {
+  background: none;
+  border: none;
+  padding: 0 var(--space-3);
+  height: 2.75rem;
+  font-size: 0.875rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (min-width: 40.0625rem) {
+  .minorModalGridThree {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .minorModalGridTwo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

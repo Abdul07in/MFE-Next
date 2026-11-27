@@ -8,6 +8,12 @@ import { distributorQueryOptions } from '@platform/query/queryOptions';
 import { Button } from '@shared-ui/components/Button';
 import { Icon } from '@shared-ui/components/Icon';
 
+import {
+  clientEmailSchema,
+  clientMobileSchema,
+  isJointHolderValid,
+  isOverseasAddressComplete,
+} from '../../schemas/clientDetailsSchema';
 import type { ClientDetailsFormState, FatcaFormState } from '../../types';
 import { ClientDetailsForm } from '../ClientDetailsForm';
 import { FatcaDetailsCard } from '../FatcaDetailsCard';
@@ -72,11 +78,35 @@ export function NewFolioClientFlow({ initialMobile = '' }: NewFolioClientFlowPro
     setProceedNotice('');
   }, []);
 
+  const isContactValid = Boolean(
+    clientValues &&
+      clientMobileSchema.safeParse(clientValues.mobile).success &&
+      (!clientValues.email.trim() ||
+        clientEmailSchema.safeParse(clientValues.email.trim()).success),
+  );
+
+  const isResidenceEligible = Boolean(
+    clientValues &&
+      (clientValues.residentialStatus === 'india' ||
+        (clientValues.residentialStatus === 'other' &&
+          clientValues.residenceOther === 'nri' &&
+          isOverseasAddressComplete(clientValues.overseasAddress))),
+  );
+
+  const areJointHoldersValid = Boolean(
+    clientValues &&
+      (clientValues.accountType !== 'either_or_survivor' ||
+        ((!clientValues.hasSecondary || isJointHolderValid(clientValues.secondaryHolder)) &&
+          (!clientValues.hasTertiary || isJointHolderValid(clientValues.tertiaryHolder)))),
+  );
+
   const canProceedToStep2 = Boolean(
     verifiedPan &&
+      isContactValid &&
       clientValues?.dob &&
       clientValues?.accountType &&
-      clientValues?.residentialStatus &&
+      isResidenceEligible &&
+      areJointHoldersValid &&
       fatcaForm.occupation &&
       fatcaForm.nationality &&
       fatcaForm.isPep !== true,

@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import { TAGGED_EMAIL_ADDRESSES, TAGGED_MOBILE_NUMBERS } from '../constants';
+import type { JointHolderDetails, OverseasAddressDetails } from '../types';
 
 export const clientMobileSchema = z
   .string()
@@ -39,4 +40,36 @@ export function formatPanInput(raw: string): string {
     }
   }
   return formatted;
+}
+
+/**
+ * Checks whether all required overseas address fields are populated for NRI applicants.
+ * @param address Overseas address field object.
+ * @returns True when address, country, city, state, and pinCode are non-empty.
+ */
+export function isOverseasAddressComplete(address: OverseasAddressDetails): boolean {
+  return Boolean(
+    address.address.trim() &&
+      address.country.trim() &&
+      address.city.trim() &&
+      address.state.trim() &&
+      address.pinCode.trim(),
+  );
+}
+
+/**
+ * Validates joint holder optional/active inputs so tagged contact numbers/emails or malformed PANs block progression.
+ * @param holder Joint holder fields (`Secondary` or `Tertiary`).
+ * @returns True when entered holder fields have no validation errors and minimum holder details are present.
+ */
+export function isJointHolderValid(holder: JointHolderDetails): boolean {
+  if (!clientPanSchema.safeParse(holder.pan).success) return false;
+  if (!holder.dob) return false;
+  if (holder.mobile.length > 0 && !clientMobileSchema.safeParse(holder.mobile).success) {
+    return false;
+  }
+  if (holder.email.trim().length > 0 && !clientEmailSchema.safeParse(holder.email.trim()).success) {
+    return false;
+  }
+  return true;
 }
